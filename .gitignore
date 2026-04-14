@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
+.env/
+
+# Data
+data/
+*.wav
+*.flac
+*.csv
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
