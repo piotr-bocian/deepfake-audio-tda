@@ -13,7 +13,7 @@ from sklearn.metrics import (
 )
 
 
-FEATURE_COLS = [f"t{i}" for i in range(8)]
+FEATURE_COLS = [f"t{i}" for i in range(13)]
 
 
 def encode_labels(series: pd.Series) -> pd.Series:

@@ -12,10 +12,10 @@ if __name__ == "__main__":
         LA_TRAIN_DIR,
         LA_TRAIN_PROTOCOL,
         n_mfcc=13,
-        max_points=100,
-        pca_components=8,
+        max_points=80,
+        pca_components=None,
         use_h0=True,
-        use_h1=False,
+        use_h1=True,
         samples_per_class=200,
         random_state=42,
     )
@@ -24,11 +24,11 @@ if __name__ == "__main__":
         LA_DEV_DIR,
         LA_DEV_PROTOCOL,
         n_mfcc=13,
-        max_points=100,
-        pca_components=8,
+        max_points=80,
+        pca_components=None,
         use_h0=True,
-        use_h1=False,
-        samples_per_class=200,
+        use_h1=True,
+        samples_per_class=None,
         random_state=42,
     )
 
@@ -42,5 +42,5 @@ if __name__ == "__main__":
     print(dev_df["label"].value_counts())
     print(dev_df.shape)
 
-    train_df.to_csv("../data/la_train_tda_v2h0.csv", index=False)
-    dev_df.to_csv("../data/la_dev_tda_v2h0.csv", index=False)
+    train_df.to_csv("../data/la_train_tda.csv", index=False)
+    dev_df.to_csv("../data/la_dev_tda.csv", index=False)

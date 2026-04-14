@@ -72,13 +72,13 @@ def topk_lifetimes(lifetimes: np.ndarray, k: int = 3) -> list[float]:
         vals.append(0.0)
     return [float(v) for v in vals]
 
-
+# 13 features per homology diagram:
+# mean, std, max, sum, q25, q50, q75, q90, count, entropy, top1, top2, top3
 def diagram_stats(diagram: np.ndarray) -> list[float]:
     lifetimes = finite_lifetimes(diagram)
 
     if lifetimes.size == 0:
-        # 10 cech na diagram
-        return [0.0] * 10
+        return [0.0] * 13
 
     q25, q50, q75, q90 = np.quantile(lifetimes, [0.25, 0.5, 0.75, 0.9])
 
@@ -105,7 +105,7 @@ def extract_tda_features_from_mfcc(
     n_mfcc: int = 13,
     max_points: int = 80,
     maxdim: int = 1,
-    pca_components: int | None = 8,
+    pca_components: int | None = None,
     use_h0: bool = True,
     use_h1: bool = True,
 ) -> np.ndarray:

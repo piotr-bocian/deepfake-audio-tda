@@ -31,15 +31,23 @@ if __name__ == "__main__":
     mfcc_train = pd.read_csv("../data/la_train_mfcc.csv")
     mfcc_dev = pd.read_csv("../data/la_dev_mfcc.csv")
 
-    tda_train = pd.read_csv("../data/la_train_tda_v2.csv")
-    tda_dev = pd.read_csv("../data/la_dev_tda_v2.csv")
+    tda_train = pd.read_csv("../data/la_train_tda.csv")
+    tda_dev = pd.read_csv("../data/la_dev_tda.csv")
 
     # Bierzemy tylko potrzebne kolumny z TDA, żeby nie dublować metadanych
     tda_train_small = tda_train[["filename"] + TDA_COLS]
     tda_dev_small = tda_dev[["filename"] + TDA_COLS]
 
+    assert mfcc_train["filename"].is_unique
+    assert tda_train_small["filename"].is_unique
+    assert mfcc_dev["filename"].is_unique
+    assert tda_dev_small["filename"].is_unique
+
     train_df = mfcc_train.merge(tda_train_small, on="filename", how="inner")
     dev_df = mfcc_dev.merge(tda_dev_small, on="filename", how="inner")
+
+    assert len(train_df) == len(mfcc_train)
+    assert len(dev_df) == len(mfcc_dev)
 
     print("Train merged shape:", train_df.shape)
     print("Dev merged shape:", dev_df.shape)

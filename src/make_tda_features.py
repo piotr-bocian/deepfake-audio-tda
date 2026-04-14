@@ -14,7 +14,7 @@ def build_tda_feature_dataframe(
     protocol_path: str | Path,
     n_mfcc: int = 13,
     max_points: int = 80,
-    pca_components: int | None = 8,
+    pca_components: int | None = None,
     use_h0: bool = True,
     use_h1: bool = True,
     samples_per_class: int | None = None,
@@ -34,6 +34,7 @@ def build_tda_feature_dataframe(
             random_state=random_state,
         )
         labels_df = pd.concat([bonafide_df, spoof_df], ignore_index=True)
+        labels_df = labels_df.sample(frac=1, random_state=random_state).reset_index(drop=True)
 
     elif max_files is not None:
         labels_df = labels_df.iloc[:max_files].copy()
@@ -60,13 +61,16 @@ def build_tda_feature_dataframe(
                 use_h1=use_h1,
             )
 
+            expected_dim = 13 * int(use_h0) + 13 * int(use_h1)
+            assert len(x) == expected_dim, f"Expected {expected_dim} TDA features, got {len(x)}"
             row = {
                 "filename": meta["filename"],
                 "speaker_id": meta["speaker_id"],
                 "attack_id": meta["attack_id"],
                 "label": meta["label"],
-                **{f"t{i}": float(val) for i, val in enumerate(x)},
+                **{f"t{i}": float(val) for i, val in enumerate(x)}
             }
+
             rows.append(row)
 
         except Exception as e:
