@@ -10,17 +10,17 @@ from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from src.paths import (
+from common.paths import (
     LA_TRAIN_DIR,
     LA_DEV_DIR,
     LA_TRAIN_PROTOCOL,
     LA_DEV_PROTOCOL,
 )
-from src.make_features import build_feature_dataframe
-from src.make_tda_features import build_tda_feature_dataframe
+from clean.make_features import build_feature_dataframe
+from clean.make_tda_features import build_tda_feature_dataframe
 
 
-DATA_DIR = Path("../data")
+DATA_DIR = Path("../../data")
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 RESULTS_PATH = DATA_DIR / "results_priority_a_all.csv"

@@ -11,14 +11,14 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve
 
-from src.paths import (
+from common.paths import (
     DATA_DIR,
     LA_TRAIN_DIR,
     LA_DEV_DIR,
     LA_TRAIN_PROTOCOL,
     LA_DEV_PROTOCOL,
 )
-from src.make_features import build_feature_dataframe
+from clean.make_features import build_feature_dataframe
 from src.make_tda_features_v1 import build_tda_v1_feature_dataframe
 
 

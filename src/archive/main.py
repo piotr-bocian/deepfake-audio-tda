@@ -1,10 +1,10 @@
-from src.paths import (
+from common.paths import (
     LA_TRAIN_DIR,
     LA_DEV_DIR,
     LA_TRAIN_PROTOCOL,
     LA_DEV_PROTOCOL,
 )
-from src.make_features import build_feature_dataframe
+from clean.make_features import build_feature_dataframe
 
 train_df = build_feature_dataframe(
     LA_TRAIN_DIR,

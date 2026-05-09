@@ -11,7 +11,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 
-DATA_DIR = Path("../data")
+DATA_DIR = Path("../../data")
 RESULTS_PATH = DATA_DIR / "results_priority_a.csv"
 
 MFCC_TRAIN = DATA_DIR / "la_train_mfcc.csv"

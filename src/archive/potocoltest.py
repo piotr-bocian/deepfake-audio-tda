@@ -1,4 +1,4 @@
-from src.paths import LA_PROTOCOL_DIR
+from common.paths import LA_PROTOCOL_DIR
 
 for fname in [
     "ASVspoof2019.LA.cm.train.trn.txt",

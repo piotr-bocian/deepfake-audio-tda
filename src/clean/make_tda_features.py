@@ -4,9 +4,9 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
-from src.data_io import load_audio
-from src.features_tda import extract_tda_features_from_mfcc
-from src.protocols import parse_asvspoof2019_la_cm
+from common.data_io import load_audio
+from clean.features_tda import extract_tda_features_from_mfcc
+from common.protocols import parse_asvspoof2019_la_cm
 
 
 def build_tda_feature_dataframe(

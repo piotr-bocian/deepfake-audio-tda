@@ -28,11 +28,11 @@ def compute_eer(y_true, y_prob) -> float:
 
 
 if __name__ == "__main__":
-    mfcc_train = pd.read_csv("../data/la_train_mfcc.csv")
-    mfcc_dev = pd.read_csv("../data/la_dev_mfcc.csv")
+    mfcc_train = pd.read_csv("../../data/la_train_mfcc.csv")
+    mfcc_dev = pd.read_csv("../../data/la_dev_mfcc.csv")
 
-    tda_train = pd.read_csv("../data/la_train_tda.csv")
-    tda_dev = pd.read_csv("../data/la_dev_tda.csv")
+    tda_train = pd.read_csv("../../data/la_train_tda.csv")
+    tda_dev = pd.read_csv("../../data/la_dev_tda.csv")
 
     # Bierzemy tylko potrzebne kolumny z TDA, żeby nie dublować metadanych
     tda_train_small = tda_train[["filename"] + TDA_COLS]

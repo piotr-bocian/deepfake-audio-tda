@@ -26,8 +26,8 @@ def compute_eer(y_true, y_prob) -> float:
 
 
 if __name__ == "__main__":
-    train_df = pd.read_csv("../data/la_train_mfcc.csv")
-    dev_df = pd.read_csv("../data/la_dev_mfcc.csv")
+    train_df = pd.read_csv("../../data/la_train_mfcc.csv")
+    dev_df = pd.read_csv("../../data/la_dev_mfcc.csv")
 
     X_train = train_df[FEATURE_COLS]
     y_train = encode_labels(train_df["label"])

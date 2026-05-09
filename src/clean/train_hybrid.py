@@ -6,11 +6,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score, accuracy_score, roc_curve
 
 
-mfcc_train = pd.read_csv("../data/la_train_mfcc.csv")
-tda_train = pd.read_csv("../data/la_train_tda.csv")
+mfcc_train = pd.read_csv("../../data/la_train_mfcc.csv")
+tda_train = pd.read_csv("../../data/la_train_tda.csv")
 
-mfcc_dev = pd.read_csv("../data/la_dev_mfcc.csv")
-tda_dev = pd.read_csv("../data/la_dev_tda.csv")
+mfcc_dev = pd.read_csv("../../data/la_dev_mfcc.csv")
+tda_dev = pd.read_csv("../../data/la_dev_tda.csv")
 
 assert mfcc_train["filename"].is_unique
 assert tda_train["filename"].is_unique

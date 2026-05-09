@@ -15,8 +15,8 @@ def encode_labels(series: pd.Series) -> pd.Series:
 
 
 if __name__ == "__main__":
-    train_df = pd.read_csv("../data/la_train_mfcc.csv")
-    dev_df = pd.read_csv("../data/la_dev_mfcc.csv")
+    train_df = pd.read_csv("../../data/la_train_mfcc.csv")
+    dev_df = pd.read_csv("../../data/la_dev_mfcc.csv")
 
     X_train = train_df[FEATURE_COLS]
     y_train = encode_labels(train_df["label"])
